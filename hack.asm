@@ -9,9 +9,19 @@ CURRENT_SPEED           = $fff4fe
 LAST_A_PRESS_FLAG       = $ffff00
 CUR_A_PRESS_FLAG        = $ffff01
 
+NEW_OPTIONS_MENU        = $0ff400
+
 
     org 0
     incbin "coolspot.md"
+
+    ; update run button
+    org $d4c57
+            db          $09
+
+    ; point to new options menu which adds run button to triggers
+    org $0d48e0
+            lea         (NEW_OPTIONS_MENU).l, a0
 
     org $0cb5f4
             jsr         my_code

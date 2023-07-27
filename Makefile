@@ -1,4 +1,5 @@
-hack.md: fixchecksum.py hack.asm.bin
+hack.md: fixchecksum.py fixoptions.py hack.asm.bin
+	python fixoptions.py
 	python $<
 
 hack.asm.bin: hack.asm
