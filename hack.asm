@@ -2,7 +2,7 @@ ADDRESS_SPEED_1         = $07763e
 ADDRESS_SPEED_2         = $077672
 ADDRESS_SPEED_3         = $0776c0
 ANIMATION_POINTER       = $ff07b0
-CHECK_FOR_A_PRESS       = $0d3ea4
+CHECK_FOR_RUN_BUTTON    = $0d3e56
 MOVING_DIRECTION        = $fff51a
 CURRENT_SPEED           = $fff4fe
 
@@ -48,7 +48,7 @@ a_press:
             move.b      d0, (LAST_A_PRESS_FLAG).l
 .save_new_a_press_flag
             clr.b       (CUR_A_PRESS_FLAG).l
-            jsr         CHECK_FOR_A_PRESS
+            jsr         CHECK_FOR_RUN_BUTTON
             seq         (CUR_A_PRESS_FLAG).l
 .are_we_moving
             cmpi.b      #0, (MOVING_DIRECTION).l
